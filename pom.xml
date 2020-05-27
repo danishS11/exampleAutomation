@@ -90,25 +90,10 @@
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
 					<systemPropertyVariables>
-						<environment></environment>
-						<client.os>Windows</client.os>
-						<test.platform>web</test.platform>
-						<send.slack>true</send.slack>
-						<retry>false</retry>
-						<retry.count>1</retry.count>
-						<local.run>false</local.run>
-						<lsk.login></lsk.login>
-						<lsk.pwd></lsk.pwd>
-						<azure.name></azure.name>
-						<azure.key></azure.key>
-						<azure.sas.key></azure.sas.key>
 						<url></url>
-						<datacenter></datacenter>
-						<nr.api.key></nr.api.key>
-						<use.walmart>false</use.walmart>
 					</systemPropertyVariables>
 					<suiteXmlFiles>
-						<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+						<suiteXmlFile>TestNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<argLine>
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
