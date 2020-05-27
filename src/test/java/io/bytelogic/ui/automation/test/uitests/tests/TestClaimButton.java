@@ -8,6 +8,7 @@ import io.bytelogic.ui.automation.core.common.Props.TestProps;
 import io.bytelogic.ui.automation.core.driver.DriverManager;
 import io.bytelogic.ui.automation.core.interaction.WebInteraction;
 import io.bytelogic.ui.automation.test.BaseTest;
+import io.bytelogic.ui.automation.test.uitests.pageobjects.ClaimsPage;
 import io.bytelogic.ui.automation.test.uitests.pageobjects.HomePage;
 
 public class TestClaimButton extends BaseTest{
@@ -16,11 +17,13 @@ public class TestClaimButton extends BaseTest{
 	public void testClaimBtn() {
 		home = new HomePage();
 		
+		claims = new ClaimsPage();
+		
 		new WebInteraction().getUrl(TestProps.TEST_URL);
 		
 		home.filaAClaimBtn().waitForVisible().click();
 		
-		home.filaAClaimBtn().waitForUrlChange(TestProps.TEST_URL);
+		claims.amazonButton().waitForUrlChange(TestProps.TEST_URL);
 		
 		String url = DriverManager.getWebDriver().getCurrentUrl();
 		
