@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> -->
+<suite name="Sample UI Tests" parallel="methods" preserve-order="true" thread-count="1">
+
+	<!-- Config params -->
+	<parameter name="webPort" value="4444"/>
+	<parameter name="machineIP" value="localhost"/>
+	<parameter name="clientOS" value="Windows"/>
+	<parameter name="testResourcesPath" value="/src/test/resources/"/>
+	<parameter name="screenshotPath" value="/test-output/screenshots/"/>
+	<parameter name="mainResourcesPath" value="/src/main/resources/"/>
+	<parameter name="DockerRun" value="true"/>
+	
+	<!-- Test Config params -->
+	<parameter name="testUrl" value="https://www.asurion.com"/>
+	<parameter name="claimsUrl" value="https://www.asurion.com/claims/"/>
+
+
+	<listeners>
+		<listener class-name="io.bytelogic.ui.automation.test.listeners.TestListener" />
+	</listeners>
+
+
+	<!-- Available groups are Full Smoke Regression e2e -->
+	<test verbose="1" name="Test" annotations="JDK">
+		<groups>
+			<run>
+				<include name="Full" />
+				<exclude name="Broken"/>
+			</run>
+		</groups>
+		<packages>
+			<package name="io.bytelogic.ui.automation.test.uitests.*" />
+		</packages>
+	</test>
+</suite> 
