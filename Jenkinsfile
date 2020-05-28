@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps{
-                sh 'docker-compose up functional-tests --no-color'
+                sh 'docker-compose up functional-tests'
             }
         }  
     }
