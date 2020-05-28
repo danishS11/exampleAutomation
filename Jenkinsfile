@@ -11,14 +11,14 @@ pipeline {
                 sh "docker build -t=danishaj/qa-docker ."
             }
         }
-        stage('Push Image') {
+ /*       stage('Push Image') {
             steps {
                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     sh "docker login --username=${user} --password=${pass}"
                     sh "docker push danishaj/qa-docker:latest"
                 }
             }                           
-        }
+        } */
         stage('Initialize Hub and Chrome') {
             steps{
                 sh 'docker-compose up -d hub chrome'
@@ -28,11 +28,12 @@ pipeline {
             steps{
                 sh 'docker-compose up functional-tests --no-color'
             }
+        }  
+    }
+    post{
+        always{
+            archiveArtifacts artifacts: 'test-output/emailable-report.html'
+            sh 'docker-compose down'
         }
-        stage('Close Docker') {
-            steps {
-                sh 'docker-compose down'
-            }
-        }        
     }
 }
