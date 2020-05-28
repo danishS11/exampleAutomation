@@ -6,11 +6,11 @@ The framework has adopted the industry standard PageObject model using Selenium 
 
 ## Instructions to run the tests
 Please follow the instructions below to run the tests
-Pre-reqs:
+### Pre-reqs:
 1. Docker is installed on the machine
 2. Maven and Java are installed and in the system Path
 
-Run Steps:
+### Run Steps:
 1. Clone/Fork this repo to your machine
 2. From root folder of the cloned repo type `mvn clean package -DskipTests` 
   - This command will compile the code via maven and generate 2 jar files and place it in `target` folder
