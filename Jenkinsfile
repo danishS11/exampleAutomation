@@ -19,5 +19,20 @@ pipeline {
                 }
             }                           
         }
+        stage('Initialize Hub and Chrome') {
+            steps{
+                sh 'docker-compose up -d hub chrome'
+            }
+        }
+        stage('Run Tests') {
+            steps{
+                sh 'docker-compose up functional-tests'
+            }
+        }
+        stage('Close Docker') {
+            steps {
+                sh 'docker-compose down'
+            }
+        }        
     }
 }
