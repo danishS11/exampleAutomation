@@ -1,0 +1,22 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:latest
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:latest
+    shm_size: '1gb'
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  functional-tests:
+    image: qa-docker
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+    volumes:
+      - ./docker-output:/usr/share/QA/test-output
+

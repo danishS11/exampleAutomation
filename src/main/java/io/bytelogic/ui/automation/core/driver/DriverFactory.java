@@ -14,7 +14,7 @@ public class DriverFactory {
 	
 	public void webDriverInit(){
 		ChromeOptions cap = new ChromeOptions();
-		String url = "http://" + ConfigProps.MACHINE_IP + ":" + ConfigProps.WEB_PORT_NUMBER + "/wd/hub";
+		String url = "http://" + ConfigProps.DOCKER_IP + ":" + ConfigProps.WEB_PORT_NUMBER + "/wd/hub";
 		cap.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
 		try {
 			DriverManager.setWebDriver(new RemoteWebDriver(new URL(url), cap));
