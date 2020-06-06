@@ -22,7 +22,7 @@ public class Props {
 	
 	public interface TestProps {
 		public static String TEST_URL = Config.getString("testUrl");
-		public static String CLAIMS_URL = Config.getString("claimsUrl");
+		public static String DOWNLOADS_URL = Config.getString("claimsUrl");
 	}
 	
 }

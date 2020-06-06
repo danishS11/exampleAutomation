@@ -58,7 +58,7 @@ public class Config {
 	}
 
 	private static String getConfigFileLocation() {
-		String fileLoc = "TestNG.xml";
+		String fileLoc = "testng.xml";
 		return fileLoc.replace("/", File.separator);
 	}
 

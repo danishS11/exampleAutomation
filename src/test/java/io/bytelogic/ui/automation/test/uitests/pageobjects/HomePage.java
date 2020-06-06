@@ -4,15 +4,15 @@ import org.openqa.selenium.By;
 
 import io.bytelogic.ui.automation.core.interaction.WebInteraction;
 
-public class HomePage {
+public class HomePage extends BasePage {
 	
 	public HomePage(){
 		new WebInteraction().waitTillPageLoaded();
 	}
 
-	protected By claimBtn = By.xpath("//a[@class = 'nav-item btn btn-primary' and not(contains(@tabIndex, '-1'))]");
+	protected By dlBtn = By.xpath("//a[text()= 'Downloads']");
 	
-	public WebInteraction filaAClaimBtn() {
-		return new WebInteraction(claimBtn);
+	public WebInteraction downloadButton() {
+		return new WebInteraction(dlBtn);
 	}
 }
