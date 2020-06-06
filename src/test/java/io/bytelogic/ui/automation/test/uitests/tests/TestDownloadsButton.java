@@ -19,22 +19,6 @@ public class TestDownloadsButton extends BaseTest{
 	}
 
 	@Test(groups = {Groups.FULL})
-	public void testDlPageNav() {
-		setup();
-		
-		new WebInteraction().getUrl(TestProps.TEST_URL);
-		
-		home.downloadButton().waitForVisible().click();
-		
-		dlPage.browsersCollBtn().waitForUrlChange(TestProps.TEST_URL);
-		
-		String url = DriverManager.getWebDriver().getCurrentUrl();
-		
-		Assert.assertEquals(url, TestProps.DOWNLOADS_URL, "The Expected URL is not what's expected");
-		
-	}
-	
-	@Test(groups = {Groups.FULL})
 	public void testExpandButton() {
 		setup();
 		
