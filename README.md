@@ -19,4 +19,4 @@ Please follow the instructions below to run the tests
 4. Once step 3 successfully completes, type 
   - On windows: `docker-compose up | findstr functional-tests`
   - On Mac/Linux: `docker-compose up | grep funcitonal-tests`
-  
+ 
