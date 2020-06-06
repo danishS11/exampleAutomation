@@ -20,3 +20,7 @@ Please follow the instructions below to run the tests
   - On windows: `docker-compose up | findstr functional-tests`
   - On Mac/Linux: `docker-compose up | grep funcitonal-tests`
  
+### Note:
+- The repo is configured (via github webhook) to kick-off a jenkins job running on an AWS instance whenever a commit is pushed to master.
+- Jenkinsfile present in the repo defines the pipeline which performs the `run steps` above. 
+- The tests are then run on `AWS Spot Fleet` instances.
