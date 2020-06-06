@@ -6,7 +6,8 @@ WORKDIR /usr/share/QA
 
 ADD target/SampleUIAutomation.jar 			SampleUIAutomation.jar
 ADD target/SampleUIAutomation-tests.jar 	SampleUIAutomation-tests.jar 
-ADD TestNG.xml								TestNG.xml
+ADD target/libs								libs
+ADD testng.xml								testng.xml
 ADD healthcheck.sh 							healthcheck.sh
 ADD target/libs								libs
 

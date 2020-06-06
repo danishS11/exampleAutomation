@@ -4,11 +4,12 @@ import org.openqa.selenium.By;
 
 import io.bytelogic.ui.automation.core.interaction.WebInteraction;
 
-public class ClaimsPage {
-
-	protected By amznBtn = By.xpath("//button[@value='Amazon']");
+public class BasePage {
 	
-	public WebInteraction amazonButton() {
-		return new WebInteraction(amznBtn);
+	protected By hero = By.tagName("h1");
+	
+	public WebInteraction heroTitle() {
+		return new WebInteraction(hero);
 	}
+
 }
