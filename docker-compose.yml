@@ -12,7 +12,7 @@ services:
     environment:
       - HUB_HOST=hub
   functional-tests:
-    image: qa-docker
+    image: danishaj/qa-docker
     depends_on:
       - hub
     environment:
