@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 
 import io.bytelogic.ui.automation.core.common.Props.Groups;
 import io.bytelogic.ui.automation.core.common.Props.TestProps;
-import io.bytelogic.ui.automation.core.driver.DriverManager;
 import io.bytelogic.ui.automation.core.interaction.WebInteraction;
 import io.bytelogic.ui.automation.test.BaseTest;
 import io.bytelogic.ui.automation.test.uitests.pageobjects.DownloadsPage;
