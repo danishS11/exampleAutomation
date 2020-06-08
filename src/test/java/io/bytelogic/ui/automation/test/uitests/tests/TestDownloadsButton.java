@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import io.bytelogic.ui.automation.core.common.Props.Groups;
 import io.bytelogic.ui.automation.core.common.Props.TestProps;
-import io.bytelogic.ui.automation.core.interaction.WebInteraction;
+import io.bytelogic.ui.automation.core.interaction.WebController;
 import io.bytelogic.ui.automation.test.BaseTest;
 import io.bytelogic.ui.automation.test.uitests.pageobjects.DownloadsPage;
 import io.bytelogic.ui.automation.test.uitests.pageobjects.HomePage;
@@ -21,7 +21,7 @@ public class TestDownloadsButton extends BaseTest{
 	public void testExpandButton() {
 		setup();
 		
-		new WebInteraction().getUrl(TestProps.TEST_URL);
+		new WebController().getUrl(TestProps.TEST_URL);
 		
 		home.downloadButton().waitForVisible().click();
 		

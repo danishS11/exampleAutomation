@@ -2,7 +2,7 @@ package io.bytelogic.ui.automation.test.uitests.pageobjects;
 
 import org.openqa.selenium.By;
 
-import io.bytelogic.ui.automation.core.interaction.WebInteraction;
+import io.bytelogic.ui.automation.core.interaction.WebController;
 
 public class DownloadsPage extends BasePage {
 
@@ -11,15 +11,15 @@ public class DownloadsPage extends BasePage {
 	protected By chrome = By.xpath("//h3[contains(text(), 'Chrome')]");
 	
 	
-	public WebInteraction browsersExpandBtn() {
-		return new WebInteraction(browserEx);
+	public WebController browsersExpandBtn() {
+		return new WebController(browserEx);
 	}
 	
-	public WebInteraction browsersCollBtn() {
-		return new WebInteraction(browserCol);
+	public WebController browsersCollBtn() {
+		return new WebController(browserCol);
 	}
 	
-	public WebInteraction chromeOption(){
-		return new WebInteraction(chrome);
+	public WebController chromeOption(){
+		return new WebController(chrome);
 	}
 }

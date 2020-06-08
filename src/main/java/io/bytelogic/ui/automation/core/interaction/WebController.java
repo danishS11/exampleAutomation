@@ -21,7 +21,7 @@ import io.bytelogic.ui.automation.core.app.Logger;
 import io.bytelogic.ui.automation.core.driver.DriverManager;
 import io.bytelogic.ui.automation.core.util.ScriptExecutor;
 
-public class WebInteraction {
+public class WebController {
 
 	private RemoteWebDriver webDriver;
 
@@ -40,12 +40,12 @@ public class WebInteraction {
 	private static Integer smallPause = 1000;
 	private static final String  GET_READY_STATE = "return document.readyState";
 
-	public WebInteraction(By locator){
+	public WebController(By locator){
 		webDriver = DriverManager.getWebDriver();
 		this.locator = locator;
 	}
 
-	public WebInteraction(){
+	public WebController(){
 		webDriver = DriverManager.getWebDriver();
 	}
 
@@ -85,7 +85,7 @@ public class WebInteraction {
 	 * 
 	 * @return Fluid instance of WebInteraction class
 	 **********************************************************************************************/
-	public WebInteraction waitForVisible() {
+	public WebController waitForVisible() {
 		Logger.logMessage("Waiting for element: " + locator + " to be visible");
 		getFluentWait(locator)
 		.ignoring(WebDriverException.class)
@@ -128,7 +128,7 @@ public class WebInteraction {
 	 * @param title {@link String} - URL to be checked
 	 * @return Fluid instance of WebInteraction class
 	 **********************************************************************************************/
-	public WebInteraction waitTillTitleContains(String title) {
+	public WebController waitTillTitleContains(String title) {
 		try {
 			this.getFluentWait()
 			.ignoring(WebDriverException.class)
@@ -148,7 +148,7 @@ public class WebInteraction {
 	 * @exception TimeoutException - An element is present during the entire given timeout
 	 *                period.
 	 ***********************************************************************************************/
-	public WebInteraction waitForNotPresent(Integer timeout, TimeUnit timeUnit) {
+	public WebController waitForNotPresent(Integer timeout, TimeUnit timeUnit) {
 		getFluentWait(locator, timeout, timeUnit)
 		.ignoring(WebDriverException.class)
 		.until(new Function<By, Boolean>() {
@@ -171,7 +171,7 @@ public class WebInteraction {
 	 * @param waitTime - {@link Integer} - The amount of time in milliseconds to pause.
 	 * @return Fluid instance of the Interact class
 	 **********************************************************************************************/
-	public WebInteraction pause(Integer waitTime) {
+	public WebController pause(Integer waitTime) {
 		try {
 			Thread.sleep(waitTime);
 		} catch (InterruptedException e) {
@@ -187,7 +187,7 @@ public class WebInteraction {
 	 * @param units- {@link TimeUnit } - the time unit for the {@code waitTime} argument
 	 * @return Fluid instance of the Interact class
 	 **********************************************************************************************/
-	public WebInteraction pause(Integer waitTime, TimeUnit units) {
+	public WebController pause(Integer waitTime, TimeUnit units) {
 		Logger.logMessage("Pausing for '" + waitTime + " " + units + "'");
 		try {
 			units.sleep(waitTime);
@@ -204,7 +204,7 @@ public class WebInteraction {
 	 * 
 	 * @return WebInteraction object
 	 *********************************************************************************************/
-	public WebInteraction type(String input){
+	public WebController type(String input){
 		getNonStaleElement().sendKeys(input);
 		return this;
 	}
@@ -214,7 +214,7 @@ public class WebInteraction {
 	 * 
 	 * @return WebInteraction object
 	 ********************************************************************************************/
-	public WebInteraction click(){
+	public WebController click(){
 		getNonStaleElement().click();
 		return this;
 	}
@@ -226,7 +226,7 @@ public class WebInteraction {
 	 * 
 	 * @return WebInteraction object
 	 ********************************************************************************************/
-	public WebInteraction getUrl(String url){
+	public WebController getUrl(String url){
 		Logger.logMessage("Navigating to the test page");
 		DriverManager.getWebDriver().navigate().to(url);
 		waitTillPageLoaded();
@@ -254,7 +254,7 @@ public class WebInteraction {
 	 * 
 	 * @return FLuent instance of WebInteraction class
 	 **********************************************************************************************/
-	public WebInteraction waitForNotVisible() {
+	public WebController waitForNotVisible() {
 		this.getFluentWait(locator)
 		.ignoring(WebDriverException.class)
 		.withMessage(

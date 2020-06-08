@@ -2,17 +2,17 @@ package io.bytelogic.ui.automation.test.uitests.pageobjects;
 
 import org.openqa.selenium.By;
 
-import io.bytelogic.ui.automation.core.interaction.WebInteraction;
+import io.bytelogic.ui.automation.core.interaction.WebController;
 
 public class HomePage extends BasePage {
 	
 	public HomePage(){
-		new WebInteraction().waitTillPageLoaded();
+		new WebController().waitTillPageLoaded();
 	}
 
 	protected By dlBtn = By.xpath("//a[text()= 'Downloads']");
 	
-	public WebInteraction downloadButton() {
-		return new WebInteraction(dlBtn);
+	public WebController downloadButton() {
+		return new WebController(dlBtn);
 	}
 }
