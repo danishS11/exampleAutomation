@@ -17,6 +17,11 @@ import io.bytelogic.ui.automation.core.common.Props.ConfigProps;
 
 public class ReportUtil {
 
+	/**
+	 * Takes screenshot and attaches it to the TestNG report 
+	 * 
+	 * @param driver {@link RemoteWebDriver}
+	 */
 	public static void takeScreenshot(RemoteWebDriver driver) {
 		try{
 			String timestamp, path = "";
