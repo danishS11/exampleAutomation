@@ -5,4 +5,4 @@ do
    sleep 1
 done
 
-java -DHUB-HOST=$1 -cp SampleUIAutomation.jar:SampleUIAutomation-tests.jar:libs/* org.testng.TestNG testng.xml
+java -DHUB_HOST=$1 -cp SampleUIAutomation.jar:SampleUIAutomation-tests.jar:libs/* org.testng.TestNG testng.xml
