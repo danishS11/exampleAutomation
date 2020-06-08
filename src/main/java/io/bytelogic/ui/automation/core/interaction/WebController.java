@@ -83,7 +83,7 @@ public class WebController {
 	/**********************************************************************************************
 	 * Wait for element to be visible
 	 * 
-	 * @return Fluid instance of WebInteraction class
+	 * @return Fluid instance of WebController class
 	 **********************************************************************************************/
 	public WebController waitForVisible() {
 		Logger.logMessage("Waiting for element: " + locator + " to be visible");
@@ -126,7 +126,7 @@ public class WebController {
 	 * Wait for URL is loaded
 	 * 
 	 * @param title {@link String} - URL to be checked
-	 * @return Fluid instance of WebInteraction class
+	 * @return Fluid instance of WebController class
 	 **********************************************************************************************/
 	public WebController waitTillTitleContains(String title) {
 		try {
@@ -202,7 +202,7 @@ public class WebController {
 	 * 
 	 * @param input {@link String} The string that needs to be typed
 	 * 
-	 * @return WebInteraction object
+	 * @return WebController object
 	 *********************************************************************************************/
 	public WebController type(String input){
 		getNonStaleElement().sendKeys(input);
@@ -212,7 +212,7 @@ public class WebController {
 	/********************************************************************************************
 	 * Wrapped click() method which handles stale element as well
 	 * 
-	 * @return WebInteraction object
+	 * @return WebController object
 	 ********************************************************************************************/
 	public WebController click(){
 		getNonStaleElement().click();
@@ -224,7 +224,7 @@ public class WebController {
 	 * 
 	 * @param url {@link String} A url to be navigated to
 	 * 
-	 * @return WebInteraction object
+	 * @return WebController object
 	 ********************************************************************************************/
 	public WebController getUrl(String url){
 		Logger.logMessage("Navigating to the test page");
@@ -252,7 +252,7 @@ public class WebController {
 	/**********************************************************************************************
 	 * Wait for WebElement  not visible\
 	 * 
-	 * @return FLuent instance of WebInteraction class
+	 * @return FLuent instance of WebController class
 	 **********************************************************************************************/
 	public WebController waitForNotVisible() {
 		this.getFluentWait(locator)
