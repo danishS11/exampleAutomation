@@ -5,13 +5,11 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,7 +36,6 @@ public class WebInteraction {
 
 	// wait constants
 	private static Long fluentWaitTimeout = 5000L;
-	private static Integer timeout = 5;
 	private static Integer pollingTime = 50;
 	private static Integer smallPause = 1000;
 	private static final String  GET_READY_STATE = "return document.readyState";
@@ -48,38 +45,12 @@ public class WebInteraction {
 		this.locator = locator;
 	}
 
-	public WebInteraction(WebElement ele){
-		webDriver = DriverManager.getWebDriver();
-		this.webElement = ele;
-	}
-
 	public WebInteraction(){
 		webDriver = DriverManager.getWebDriver();
 	}
 
 	public WebElement getWebElement() {
 		return webElement;
-	}
-
-	public void setWebElement(){
-		try{
-			DriverManager.getWebDriver().findElement(locator);
-		} catch (StaleElementReferenceException e) {
-			pause(smallPause);
-			waitForVisible();
-		}
-	}
-
-	public By getElementLocator() {
-		return locator;
-	}
-
-	public List<WebElement> getAllWebElements() {
-		return allWebElements;
-	}
-
-	public void setAllWebElements(){
-		DriverManager.getWebDriver().findElements(locator);
 	}
 
 
@@ -129,25 +100,6 @@ public class WebInteraction {
 		return this;
 	}
 
-
-	/**********************************************************************************************
-	 * This method uses a webElement instead of a By object
-	 * to wait on for an object to be visible.
-	 * 
-	 * @return Fluent instance of Webinteraction class
-	 *********************************************************************************************/
-	public WebInteraction waitForElementVisible() {
-		new FluentWait<WebElement>(webElement)
-		.withTimeout(timeoutDuration(TimeUnit.SECONDS, timeout))
-		.pollingEvery(pollingDuration(TimeUnit.MILLISECONDS, pollingTime))
-		.ignoring(WebDriverException.class)
-		.until(new Function<WebElement, Boolean>() {
-			public Boolean apply(final WebElement ele){
-				return ele.isDisplayed();
-			}
-		});
-		return this;
-	}
 
 
 	/**********************************************************************************************
@@ -264,20 +216,6 @@ public class WebInteraction {
 	 ********************************************************************************************/
 	public WebInteraction click(){
 		getNonStaleElement().click();
-		return this;
-	}
-
-	/********************************************************************************************
-	 * Wrapped sendKeys() method which handles stale element as well 
-	 * 
-	 * @param {@link Keys} Takes keys as argument to 
-	 * send unconventional keys. E.g. Keys.ENTER etc.
-	 * 
-	 * @return WebInteraction object
-	 ********************************************************************************************/
-	public WebInteraction keyPress(Keys keys){
-		new Actions(DriverManager.getWebDriver())
-		.moveToElement(webElement).sendKeys(keys).perform();;
 		return this;
 	}
 
