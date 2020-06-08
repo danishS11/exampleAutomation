@@ -310,6 +310,28 @@ public class WebInteraction {
 			}
 		});
 	}
+	
+	/**********************************************************************************************
+	 * Wait for WebElement  not visible\
+	 * 
+	 * @return FLuent instance of WebInteraction class
+	 **********************************************************************************************/
+	public WebInteraction waitForNotVisible() {
+		this.getFluentWait(locator)
+		.ignoring(WebDriverException.class)
+		.withMessage(
+				" element with locator '" + locator.toString() + "' is visible and should not be.")
+		.until(new Function<By, Boolean>() {
+			public Boolean apply(final By loc) {
+				elementPresent = false;
+				webElement = webDriver.findElement(loc);
+				elementPresent = true;
+				elementVisible = webElement.isDisplayed();
+				return elementPresent && !elementVisible;
+			}
+		});
+		return this;
+	}
 
 	/**
 	 * Get fluent wait
